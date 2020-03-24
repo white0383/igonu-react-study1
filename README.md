@@ -1,1 +1,1 @@
-#It is my repository for studing react
+# It is my repository for studing react
