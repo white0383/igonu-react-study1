@@ -1,0 +1,24 @@
+{
+  "name": "igonu-react-study1",
+  "version": "1.0.0",
+  "description": "## 特徴を知る   https://ko.reactjs.org/",
+  "main": "functionReview.js",
+  "dependencies": {
+    "tester": "^1.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/white0383/igonu-react-study1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/white0383/igonu-react-study1/issues"
+  },
+  "homepage": "https://github.com/white0383/igonu-react-study1#readme"
+}

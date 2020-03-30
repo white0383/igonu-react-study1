@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .clock-box {
+      background-color: rgb(143, 84, 84);
+      color:rosybrown;
+      text-align: center;
+      margin:10px;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-box" id="clock"></div>
+  <div class="clock-box" id="clock2"></div>
+  <div class="clock-box" id="clock3"></div>
+
+    <!-- Load react -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js" charset="utf-8"></script>
+  
+    <!-- React Javascript code -->
+    <script type="text/babel">
+      function tick() {
+        const element = (
+          <div>
+            <h1>Hello, world! function</h1>
+            <h2>It is {new Date().toLocaleTimeString()}.</h2>
+          </div>
+        );
+        ReactDOM.render(
+          element,
+          document.getElementById('clock')
+        );
+      }
+
+      setInterval(tick, 1000);
+
+      function Clock(props) {
+        return (
+          <div>
+            <h1>Hello, world! part</h1>
+            <h2>It is {props.date.toLocaleTimeString()}.</h2>
+          </div>
+        );
+      }
+
+      function tick2() {
+        ReactDOM.render(
+          <Clock date={new Date()}/>,
+          document.getElementById('clock2')
+        );
+      }
+
+      setInterval(tick2, 1000);
+
+      class ClockClass extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {date: new Date()};
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(
+            () => {this.tick()},
+            1000
+          );
+        }
+
+        componentWillUnMount() {
+          clearInterval(this.timerID);
+        }
+
+        tick() {
+          this.setState({
+            date: new Date()
+          });
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Hello, world! class</h1>
+              <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <ClockClass />,
+        document.getElementById('clock3')
+      );
+    </script>
+</body>
+</html>

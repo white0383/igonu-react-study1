@@ -1,0 +1,17 @@
+#hello {
+  background-color: whitesmoke;
+}
+
+.hello-text {
+  color: burlywood
+}
+
+#clock {
+  background-color: deepskyblue;
+  color: indianred;
+  width: 500px;
+  height: 500px;
+  margin:100px;
+  text-align:center;
+  position:absolute;
+}

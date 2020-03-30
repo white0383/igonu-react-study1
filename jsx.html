@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>React test</title>
+  <style>
+    #hello {
+      background-color: skyblue;
+    }
+
+    .hello-text {
+      text-align: center;
+      color: blue;
+    }
+
+    #clock {
+      background-color: deepskyblue;
+      color: indianred;
+      margin: auto;
+      text-align: center;
+    }
+
+    #theo {
+      background-color: brown;
+      color: burlywood;
+      margin:auto;
+    }
+
+    #welcomes {
+      background-color: chartreuse;
+      color: green;
+      margin:auto;
+      text-align: justify;
+    }
+
+    #comment {
+      background-color: gray;
+      color: black;
+      margin:auto;
+      width:max-content;
+      height:initial;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="hello"></div>
+  <div id="clock"></div>
+  <div id="theo"></div>
+  <div id="welcomes"></div>
+
+  <div id="comment"></div>
+
+  <!-- Load react -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js" charset="utf-8"></script>
+
+  <!-- React Javascript code -->
+  <script type="text/babel">
+    const element = (
+      <div>
+        <h1 className="hello-text">Hello, world</h1>
+        <h3 className="hello-text">small world</h3>
+        <p className="hello-text">smaller world</p>
+      </div>
+    );
+    ReactDOM.render(element, document.getElementById('hello'));
+
+    function tick() {
+      const element = (
+        <div id="clock-box">
+          <h1 id="clock-text">It is {new Date().toLocaleTimeString()}</h1>
+        </div>
+      );
+      ReactDOM.render(element, document.getElementById('clock'))
+    }
+
+    setInterval(tick, 1000);
+
+    function Welcome(props) {
+      return <h1>Hello, {props.name} </h1>;
+    }
+
+    const element2 = <Welcome name="Theo" />
+    ReactDOM.render(
+      element2,
+      document.getElementById('theo')
+    );
+
+    function Welcomes() {
+      return (
+        <div>
+          <Welcome name="Kunwoo" />
+          <Welcome name="Hyeonwoo" />
+          <Welcome name="Kunwooooo" />
+        </div>
+      );
+    }
+
+    ReactDOM.render(
+      <Welcomes />,
+      document.getElementById('welcomes')
+    );
+
+    function Comment(props) {
+      return (
+        <div className="Comment">
+          <UserInfo user={props.author} />
+          <div className="Comment-text">
+            {props.text}
+          </div>
+          <div className="Comment-date">
+            {formatDate(props.date)}
+          </div>
+        </div>
+      );
+    }
+
+    function Avatar(props) {
+      return (
+        <img className="Avatar"
+          src={props.user.avatarUrl}
+          alt={props.user.name}
+        />
+      );
+    }
+
+    function UserInfo(props) {
+      return (
+        <div className="UserInfo">
+          <Avatar user={props.user} />
+          <div className="UserInfo-name">
+            {props.user.name}
+          </div>
+        </div>
+      );
+    }
+
+    const LeeKunwoo = {
+      author : {
+        avatarUrl: "https://miro.medium.com/max/2400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
+        name : "K",
+      },
+      text : "Nice to meet you",
+      date : new Date()
+    }
+
+
+
+    ReactDOM.render(
+      <Comment />,
+      document.getElementById('comment')
+    )
+    //ReactDOM.render(
+    //  <Comment author={LeeKunwoo.author} text={LeeKunwoo.text} date={LeeKunwoo.date} />,
+    //  document.getElementById('comment')
+    //);
+
+  </script>
+
+</body>
+
+</html>
